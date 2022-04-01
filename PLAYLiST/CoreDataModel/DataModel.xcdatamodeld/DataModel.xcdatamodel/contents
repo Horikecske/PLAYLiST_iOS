@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19206" systemVersion="21A559" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Playlist" representedClassName="Playlist" syncable="YES">
+        <attribute name="coverArt" optional="YES" attributeType="Binary"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="songs" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Song" inverseName="playlist" inverseEntity="Song"/>
+        <relationship name="userLibrary" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="UserLibrary" inverseName="playlists" inverseEntity="UserLibrary"/>
+    </entity>
+    <entity name="Song" representedClassName="Song" syncable="YES">
+        <attribute name="artist" optional="YES" attributeType="String"/>
+        <attribute name="coverArt" optional="YES" attributeType="Binary"/>
+        <attribute name="streamingService" optional="YES" attributeType="String"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <attribute name="uri" optional="YES" attributeType="String"/>
+        <relationship name="playlist" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Playlist" inverseName="songs" inverseEntity="Playlist"/>
+    </entity>
+    <entity name="UserLibrary" representedClassName="UserLibrary" syncable="YES">
+        <relationship name="playlists" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Playlist" inverseName="userLibrary" inverseEntity="Playlist"/>
+    </entity>
+    <elements>
+        <element name="Playlist" positionX="228.6640625" positionY="5.59765625" width="128" height="89"/>
+        <element name="Song" positionX="-45" positionY="0" width="128" height="119"/>
+        <element name="UserLibrary" positionX="135" positionY="99" width="128" height="44"/>
+    </elements>
+</model>
